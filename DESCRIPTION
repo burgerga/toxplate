@@ -1,0 +1,19 @@
+Package: toxplate
+Type: Package
+Title: Create a Plate Layout File to Map Locations to Wells
+Version: 0.1.0
+Authors@R: person("Gerhard", "Burger", email = "burger.ga@gmail.com", role = c("aut", "cre"))
+Description: Creates a plate layout for your experiment based on the top-left
+    and the bottom-right well and a possible zigzag pattern. These layout files can
+    be used to match the location (aka 'imageNr') in the image filename to the correct
+    well in the plate. The resulting plate layout data can be exported and used in
+    'CellProfiler' instead of putting all images in separate well folders.
+License: GPL-3 | file LICENSE
+LazyData: TRUE
+Imports:
+    stringr,
+    gridExtra,
+    assertthat
+URL: https://github.com/burgerga/toxplate
+BugReports: https://github.com/burgerga/toxplate/issues
+RoxygenNote: 5.0.1
