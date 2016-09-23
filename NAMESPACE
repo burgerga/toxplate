@@ -2,4 +2,3 @@
 
 export(getLayoutMappingDF)
 export(getLayoutPicture)
-importFrom(graphics,plot.new)

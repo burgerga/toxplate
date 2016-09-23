@@ -111,14 +111,13 @@ layoutArrayToTextDF <- function(layout_arr) {
   apply(layout_arr, c(1,2), paste, collapse = ",")
 }
 
-#' @importFrom graphics plot.new
 #' @export
 getLayoutPicture <- function(top_left_well, bottom_right_well, zigzag, start_location = 1) {
   checkArguments(top_left_well, bottom_right_well, zigzag, start_location)
   layout_arr <- generateLayoutArray(top_left_well, bottom_right_well, zigzag, start_location)
 
   layoutTextDF <- layoutArrayToTextDF(layout_arr)
-  plot.new()
+  graphics::plot.new()
   gridExtra::grid.table(layoutTextDF)
 }
 
