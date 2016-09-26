@@ -17,3 +17,4 @@ Imports:
 URL: https://github.com/burgerga/toxplate
 BugReports: https://github.com/burgerga/toxplate/issues
 RoxygenNote: 5.0.1
+Suggests: testthat
