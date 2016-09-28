@@ -111,6 +111,24 @@ layoutArrayToTextDF <- function(layout_arr) {
   apply(layout_arr, c(1,2), paste, collapse = ",")
 }
 
+#' Get a picture of your layout
+#'
+#' Constructs a picture of your layout based on the top-left well and the
+#' bottom-right well, the number of positions, zigzag, and the starting location.
+#'
+#' @param top_left_well The top-left well, for example, "C03_1"
+#' @param bottom_right_well The bottom-right well, for example, "E05_2", the
+#' number of positions is extracted from this well.
+#' @param zigzag The zigzag to use, possible options are "rows" (fill by rows),
+#' "columns", and "notZigzagRowWise"
+#' @param start_location With which number to start counting the locations.
+#' Defaults to 1
+#'
+#' @examples
+#' getLayoutPicture("C02_1", "E04_2", "rows")
+#'
+#' @family toxplate functions
+#'
 #' @export
 getLayoutPicture <- function(top_left_well, bottom_right_well, zigzag, start_location = 1) {
   checkArguments(top_left_well, bottom_right_well, zigzag, start_location)
@@ -121,6 +139,19 @@ getLayoutPicture <- function(top_left_well, bottom_right_well, zigzag, start_loc
   gridExtra::grid.table(layoutTextDF)
 }
 
+#' Get a mapping of your layout
+#'
+#' Constructs a mapping of your layout based on the top-left well and the
+#' bottom-right well, the number of positions, zigzag, and the starting location.
+#' This mapping can be exported and used in CellProfiler.
+#'
+#' @inheritParams toxplate::getLayoutPicture
+#'
+#' @examples
+#' getLayoutMappingDF("C02_1", "E04_2", "rows")
+#'
+#' @family toxplate functions
+#'
 #' @export
 getLayoutMappingDF <- function(top_left_well, bottom_right_well, zigzag, start_location = 1) {
   checkArguments(top_left_well, bottom_right_well, zigzag, start_location)
