@@ -1,0 +1,67 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = ".README/README-"
+)
+library('toxplate')
+library('tibble')
+library('magrittr')
+```
+
+# toxplate
+
+Creates a plate layout for your experiment based on the top-left
+and the bottom-right well and a possible zigzag pattern. These layout files can
+be used to match the location (aka 'imageNr') in the image filename to the correct
+well in the plate. The resulting plate layout data can be exported and used in
+'CellProfiler' instead of putting all images in separate well folders.
+
+## Usage
+
+The `toxplate` package provides two functions: `getLayoutPicture` and `getLayoutMappingDF`. `getLayoutPicture` generates a picture of your layout, which you can use to store with your experiment and to inspect your layout before generating a layout mapping with `getLayoutMappingDF`. Both functions take the same arguments: the top-left and bottom-right well, the zigzag direction, and the starting number. For more details about the arguments use `?getLayoutPicture`
+
+### `getLayoutPicture`
+
+Example usage for a typical 24-well plate with 1 location per well, and zigzag over columns:
+
+```{r}
+getLayoutPicture("A01", "D06", "columns")
+```
+
+The same plate, but with zigzag over rows:
+
+```{r}
+getLayoutPicture("A01", "D06", "rows")
+```
+
+and without zigzag (rows):
+
+```{r}
+getLayoutPicture("A01", "D06", "notZigzagRowWise")
+```
+
+To use multiple positions per well just add the maximum position to the bottom-right well:
+
+```{r}
+getLayoutPicture("A01", "D06_02", "columns")
+```
+
+One more example of a partially filled bigger plate
+
+```{r}
+getLayoutPicture("C05", "K12_02", "rows")
+```
+
+When the layout is what you expect you can generate a mapping with `getLayoutMappingDF` (I used `as_tibble` to prevent long output):
+
+```{r}
+getLayoutMappingDF("A01", "D06_02", "columns") %>% as_tibble
+```
+
