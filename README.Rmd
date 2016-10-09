@@ -8,7 +8,9 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = ".README/README-"
+  fig.path = ".README/README-",
+  fig.width = 3,
+  fig.height = 1.5
 )
 library('toxplate')
 library('tibble')
@@ -49,13 +51,13 @@ getLayoutPicture("A01", "D06", "notZigzagRowWise")
 
 To use multiple positions per well just add the maximum position to the bottom-right well:
 
-```{r}
+```{r, fig.width=4}
 getLayoutPicture("A01", "D06_02", "columns")
 ```
 
 One more example of a partially filled bigger plate
 
-```{r}
+```{r, fig.width= 7, fig.height=3}
 getLayoutPicture("C05", "K12_02", "rows")
 ```
 
