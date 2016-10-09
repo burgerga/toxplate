@@ -135,8 +135,10 @@ getLayoutPicture <- function(top_left_well, bottom_right_well, zigzag, start_loc
   layout_arr <- generateLayoutArray(top_left_well, bottom_right_well, zigzag, start_location)
 
   layoutTextDF <- layoutArrayToTextDF(layout_arr)
-  graphics::plot.new()
-  gridExtra::grid.table(layoutTextDF)
+  g <- gridExtra::tableGrob(layoutTextDF)
+  #g$heights <- grid::unit(rep(1/nrow(g), nrow(g)), "npc")
+  #g$widths <- grid::unit(rep(1/ncol(g), ncol(g)), "npc")
+  gridExtra::grid.arrange(g)
 }
 
 #' Get a mapping of your layout
