@@ -1,7 +1,7 @@
 Package: toxplate
 Type: Package
 Title: Create a Plate Layout File to Map Locations to Wells
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: person("Gerhard", "Burger", email = "burger.ga@gmail.com", role = c("aut", "cre"))
 Description: Creates a plate layout for your experiment based on the top-left
     and the bottom-right well and a possible zigzag pattern. These layout files can
