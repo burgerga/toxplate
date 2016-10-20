@@ -3,14 +3,14 @@
 toxplate
 ========
 
-Creates a plate layout for your experiment based on the top-left and the bottom-right well and a possible zigzag pattern. These layout files can be used to match the location (aka 'imageNr') in the image filename to the correct well in the plate. The resulting plate layout data can be exported and used in 'CellProfiler' instead of putting all images in separate well folders.
+Creates a plate layout for your experiment based on the top-left and the bottom-right well and a possible zigzag pattern. These layout files can be used to match the location (aka 'imageNr') in the image filename to the correct well in the plate. The resulting plate layout data can be exported and used in CellProfiler instead of putting all images in separate well folders.
 
 Usage
 -----
 
 The `toxplate` package provides two functions: `getLayoutPicture` and `getLayoutMappingDF`. `getLayoutPicture` generates a picture of your layout, which you can use to store with your experiment and to inspect your layout before generating a layout mapping with `getLayoutMappingDF`. Both functions take the same arguments: the top-left and bottom-right well, the zigzag direction, and the starting number. For more details about the arguments use `?getLayoutPicture`
 
-### `getLayoutPicture`
+### getLayoutPicture
 
 Example usage for a typical 24-well plate with 1 location per well, and zigzag over columns:
 
@@ -52,6 +52,8 @@ getLayoutPicture("C05", "K12_02", "rows")
 
 ![](.README/README-unnamed-chunk-6-1.png)
 
+### getLayoutMappingDF
+
 When the layout is what you expect you can generate a mapping with `getLayoutMappingDF` (I used `as_tibble` to prevent long output):
 
 ``` r
@@ -70,4 +72,13 @@ getLayoutMappingDF("A01", "D06_02", "columns") %>% as_tibble
 #> 9      A     3     1    17       A03       A03_1
 #> 10     B     3     1    19       B03       B03_1
 #> # ... with 38 more rows
+```
+
+Installation
+------------
+
+The `toxplate` package is not on CRAN (yet). To install it you need the `devtools` package:
+
+``` r
+devtools::install_github('burgerga/toxplate')
 ```
